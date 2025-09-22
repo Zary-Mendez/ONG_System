@@ -1,11 +1,24 @@
 import { connect, sendMessage } from "./web/chatSocket.js";
 import { showUserList, clearUser, redirectToLogin } from "./ui/chatUI.js";
 
-// Verificar usuario
+// Obtener usuario y emergencia desde localStorage
 const user = JSON.parse(localStorage.getItem("user"));
-if (!user) redirectToLogin();
+const emergency = localStorage.getItem("emergency");
 
+// Validación: si no hay usuario o emergencia, redirigir al login
+if (!user || !user.name || !emergency) {
+    redirectToLogin();
+}
+
+// Mostrar nombre del usuario en el encabezado
 document.getElementById("chat-username").textContent = "Bienvenido " + user.name;
+
+// Mostrar la emergencia reportada en el chat como mensaje del sistema
+const messagesDiv = document.getElementById("messages");
+const emergencyMsg = document.createElement("div");
+emergencyMsg.classList.add("message", "system");
+emergencyMsg.innerHTML = `<em>🚨 Emergencia reportada: ${emergency}</em>`;
+messagesDiv.appendChild(emergencyMsg);
 
 // Sidebar y controles
 const chatForm = document.getElementById("chatForm");
@@ -18,8 +31,8 @@ const closeBtn = document.getElementById("closeSidebar");
 // Conectar al WebSocket
 connect(user);
 
-// Eventos
-chatForm.addEventListener("submit", function(e) {
+// Enviar mensaje al servidor
+chatForm.addEventListener("submit", function (e) {
     e.preventDefault();
     const text = messageInput.value.trim();
     if (text) {
@@ -28,11 +41,14 @@ chatForm.addEventListener("submit", function(e) {
     }
 });
 
-logoutBtn.addEventListener("click", function() {
+// Cerrar sesión
+logoutBtn.addEventListener("click", function () {
     clearUser();
+    localStorage.removeItem("emergency");
     redirectToLogin();
 });
 
+// Mostrar/ocultar lista de usuarios
 toggleBtn.addEventListener("click", () => {
     showUserList(sidebar, true);
 });

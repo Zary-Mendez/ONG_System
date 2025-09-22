@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rescate Global Colombia</title>
-  <link rel="stylesheet" href="./css/global.css"/>
-  <link rel="stylesheet" href="./css/login.css"/>
-  <!-- Iconos -->
+  <meta charset="UTF-8">
+  <title>Selecciona tu emergencia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/global.css">
+  <link rel="stylesheet" href="./css/emergency.css"/>
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
@@ -28,12 +28,13 @@
       </div>
 
       <!-- Login -->
-      <div class="login-container"> 
+      <div class="emergency-container"> 
         <form id="loginForm" class="form-section">
-          <h2>Información Usuario</h2>
-          <label for="username">Ingrese su nombre:</label>
-          <input type="text" id="username" placeholder="Nombre completo" required />
-          <button type="submit" class="btn-primary">Ingresar</button>
+          <h2>¿Cuál es tu emergencia?</h2>
+  <div id="emergency-options">
+    <button data-emergency="Incendio" class="btn-primary">🔥 Incendio</button>
+    <button data-emergency="Inundación" class="btn-primary">🌊 Inundación</button>
+    <button data-emergency="Terremoto" class="btn-primary">🌳 Terremoto</button>
         </form>
       </div>
 
@@ -52,7 +53,6 @@
   </div>
 
   <!-- Script -->
-  <script type="module" src="js/login.js"></script>
+  <script type="module" src="js/emergency.js"></script>
 </body>
 </html>
-
