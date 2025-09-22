@@ -5,14 +5,19 @@
   <title>Confirmar emergencia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/global.css">
-  <script defer src="./js/confirmar.js"></script>
+  <link rel="stylesheet" href="./css/confirm.css"/>
+  <script defer src="./js/confirm.js"></script>
 </head>
 <body>
-  <h2>Tu emergencia es:</h2>
-  <p id="emergency-selected">...</p>
-  <div>
-    <button id="cancelBtn" style="background-color:red; color:white;">Cancelar</button>
-    <button id="confirmBtn" style="background-color:green; color:white;">Confirmar</button>
-  </div>
+    <div class="confirm-container"> 
+        <form id="loginForm" class="form-section">
+          <h2>Tu emergencia es:</h2>
+            <p id="emergency-selected">...</p>
+  <div id="confirm-options">
+    <button id="cancelBtn" type="button">Cancelar</button>
+    <button id="confirmBtn" type="button">Confirmar</button>
+      </form>
+      </div>
+  
 </body>
 </html>

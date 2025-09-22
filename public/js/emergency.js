@@ -4,10 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
   buttons.forEach(btn => {
     btn.addEventListener("click", () => {
       const emergency = btn.dataset.emergency;
+      console.log("Emergencia seleccionada:", emergency);
       localStorage.setItem("emergency", emergency);
-      window.location.href = "emergency.html";
-      window.location.href = "confirmar.html";
+      window.location.href = "confirm.html";
     });
   });
-  window.location.href = "confirm.html";
+  
 });

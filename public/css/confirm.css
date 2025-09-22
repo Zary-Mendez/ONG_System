@@ -1,0 +1,75 @@
+/* Contenido scroll */
+.chat-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-md);
+
+  /* 🔹 Centrado vertical */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  gap: var(--spacing-md);
+}
+
+#cancelBtn {
+  padding: 6px 14px; /* más compacto */
+  border: none;
+  border-radius: var(--radius-md);
+  background: red;
+  color: var(--color-white);
+  font-size: var(--font-size-md);
+  cursor: pointer;
+  align-self: left;
+}
+
+
+#cancelBtn:hover {
+  background: rgb(213, 2, 2);
+}
+
+#confirmBtn {
+  padding: 6px 14px; /* más compacto */
+  border: none;
+  border-radius: var(--radius-md);
+  background: rgb(2, 173, 2);
+  color: var(--color-white);
+  font-size: var(--font-size-md);
+  cursor: pointer;
+  align-self: right;
+}
+
+#confirmBtn:hover {
+  background: rgb(3, 95, 3);
+}
+
+/* Burbuja estilo chat */
+.bubble {
+  background: #b3ddf2;
+  color: var(--color-black);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-md);
+  text-align: center;
+  width: 85%;
+}
+
+/* Caja confirm */
+.confirm-container {
+  background: var(--color-tertiary);
+  width: 70%;
+  height: 20%;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+#confirm-options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+

@@ -13,6 +13,7 @@ loginForm.addEventListener("submit", function(e) {
 
     // Guardamos el usuario en localStorage para usarlo en la siguiente pantalla
     localStorage.setItem("username", username);
+    
 
     // Redirigir a la pantalla de selección de emergencia
     window.location.href = "emergency.html";

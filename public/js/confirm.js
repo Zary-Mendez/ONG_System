@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!selected) {
     alert("No se ha seleccionado ninguna emergencia.");
-    window.location.href = "emergencia.html";
+    window.location.href = "emergency.html";
     return;
   }
 
-  emergencyEl.textContent = "🌐 " + selected;
+  emergencyEl.textContent = selected;
 
   confirmBtn.addEventListener("click", () => {
     window.location.href = "chat.html";
@@ -18,6 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   cancelBtn.addEventListener("click", () => {
     localStorage.removeItem("emergency");
-    window.location.href = "emergencia.html";
+    window.location.href = "chat.html";
   });
 });

@@ -2,16 +2,16 @@ import { connect, sendMessage } from "./web/chatSocket.js";
 import { showUserList, clearUser, redirectToLogin } from "./ui/chatUI.js";
 
 // Obtener usuario y emergencia desde localStorage
-const user = JSON.parse(localStorage.getItem("user"));
+const user = JSON.parse(localStorage.getItem("username"));
 const emergency = localStorage.getItem("emergency");
 
 // Validación: si no hay usuario o emergencia, redirigir al login
-if (!user || !user.name || !emergency) {
+if (!user || !emergency) {
     redirectToLogin();
 }
 
 // Mostrar nombre del usuario en el encabezado
-document.getElementById("chat-username").textContent = "Bienvenido " + user.name;
+document.getElementById("chat-username").textContent = "Bienvenido " + user;
 
 // Mostrar la emergencia reportada en el chat como mensaje del sistema
 const messagesDiv = document.getElementById("messages");
@@ -21,7 +21,7 @@ emergencyMsg.innerHTML = `<em>🚨 Emergencia reportada: ${emergency}</em>`;
 messagesDiv.appendChild(emergencyMsg);
 
 // Sidebar y controles
-const chatForm = document.getElementById("chatForm");
+const chatForm = document.getElementById("enviar");
 const messageInput = document.getElementById("messageInput");
 const logoutBtn = document.getElementById("logoutBtn");
 const sidebar = document.getElementById("userSidebar");
@@ -32,11 +32,11 @@ const closeBtn = document.getElementById("closeSidebar");
 connect(user);
 
 // Enviar mensaje al servidor
-chatForm.addEventListener("submit", function (e) {
+chatForm.addEventListener("click", function (e) {
     e.preventDefault();
     const text = messageInput.value.trim();
     if (text) {
-        sendMessage(user.name, text);
+        sendMessage(user, text);
         messageInput.value = "";
     }
 });
