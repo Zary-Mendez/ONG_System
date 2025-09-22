@@ -1,87 +1,152 @@
-/* Login */
+/* Estructura general tipo chat */
+.chat-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #fff;
+}
+
+/* Header fijo */
+.header {
+  flex-shrink: 0;
+  background: #b3ddf2;
+  padding: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  border-bottom: 1px solid #ccc;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.logo-container {
+  background: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.logo {
+  width: 70%;
+  height: auto;
+}
+
+
+.header h1 {
+  font-size: var(--font-size-md);
+  margin: 0;
+  color: var(--color-primary); 
+  font-weight: 600;
+}
+
+/* Contenido scroll */
+.chat-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-md);
+
+  /* 🔹 Centrado vertical */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  gap: var(--spacing-md);
+}
+
+/* Burbuja estilo chat */
+.bubble {
+  background: #b3ddf2;
+  color: var(--color-black);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-md);
+  text-align: center;
+  width: 85%;
+}
+
+/* Caja login */
 .login-container {
-    background: white;
-    padding: 30px 25px;
-    border-radius: var(--radius-lg);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-    width: 100%;
-    max-width: 380px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 90%;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-md);
 }
 
-h1 {
-    margin-bottom: 25px;
-    color: var(--color-grey)
+.form-section {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-md);
+  gap: var(--spacing-sm);
 }
 
-.login-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
+.form-section h2 {
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  margin: -12px -12px var(--spacing-sm) -12px;
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  text-align: center;
+}
+
+label {
+  font-size: var(--font-size-md);
+  color: var(--color-black);
 }
 
 input {
-    padding: var(--spacing-md);
-    border: 1px solid var(--color-light-grey);
-    border-radius: var(--radius-md);
-    font-size: var(--font-size-lg);
+  padding: var(--spacing-sm);
+  border: 1px solid #87c4f8; /* azul claro */
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-md);
+  outline: none;
+  background: var(--color-primary-light);
 }
 
-.divider {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin: var(--spacing-xl) 0;
-    width: 100%;
+.btn-primary {
+  padding: 6px 14px; /* más compacto */
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: var(--font-size-md);
+  cursor: pointer;
+  align-self: center;
 }
 
-.divider span {
-    flex: 1;
-    border-bottom: 1px solid var(--color-background);
-    line-height: 0;
-    margin: 0 var(--spacing-md);
-    color: var(--color-light-grey);
-    font-size: var(--font-size-sm);
+
+.btn-primary:hover {
+  background: var(--color-hover);
 }
 
-.btn-google {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-sm);
-    width: 100%;
-    padding: var(--spacing-sm);
-    border: 1px solid var(--color-light-grey);
-    border-radius: var(--radius-md);
-    background: var(--color-white);
-    cursor: pointer;
-    font-size: var(--font-size-md);
-    transition: background 0.3s;
+/* Footer fijo */
+.footer-icons {
+  flex-shrink: 0;
+  background: #b3ddf2;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+  border-top: 1px solid #ccc;
 }
 
-.btn-google img {
-    width: var(--spacing-xl);
-    height: var(--spacing-xl);
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--color-primary);
+  cursor: pointer;
 }
 
-.btn-google:hover {
-    background: var(--color-light-grey);
+.icon-btn:hover {
+  opacity: 0.7;
 }
 
-.error {
-    color: red;
-    margin-top: var(--spacing-lg);
-    text-align: center;
-    font-size: var(--spacing-md);
-}
 
-/* Responsivo Login */
-@media (max-width: 480px) {
-    .login-container {
-        margin: 0 var(--spacing-lg);
-        padding: 25px var(--spacing-xl);
-    }
-}

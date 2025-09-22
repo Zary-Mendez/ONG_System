@@ -1,32 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatApp</title>
-    <link rel="stylesheet" href="./css/global.css"/>
-    <link rel="stylesheet" href="./css/login.css"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rescate Global Colombia</title>
+  <link rel="stylesheet" href="./css/global.css"/>
+  <link rel="stylesheet" href="./css/login.css"/>
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <div class="login-container">
-        <h1>ChatApp</h1>
-            <form id="loginForm" class="login-form">
-            <input type="text" id="username" placeholder="Usuario" required />
-            <input type="password" id="password" placeholder="Contraseña" required />
-            <button type="submit" class="btn-primary">Ingresar</button>
-        </form>
+  <div class="chat-wrapper">
+    
+    <!-- Header fijo -->
+    <header class="header">
+  <div class="logo-container">
+    <img src="./logos/logo rescate.png" alt="Logo Rescate Global Colombia" class="logo"/>
+  </div>
+  <h1>Rescate Global Colombia</h1>
+</header>
 
-        <div class="divider">
-            <span>o</span>
+
+    <!-- Contenido scroll -->
+    <main class="chat-body">
+      <!-- Mensaje superior -->
+      <div class="bubble bubble-top">
+        Estamos aquí para ayudarte.
+      </div>
+
+      <!-- Login -->
+      <div class="login-container"> 
+        <div class="form-section">
+          <h2>Información Usuario</h2>
+          <label for="username">Ingrese su nombre:</label>
+          <input type="text" id="username" placeholder="Nombre completo" required />
+          <button type="submit" class="btn-primary">Ingresar</button>
         </div>
+      </div>
 
-        <button class="btn-google">
-            <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google logo"/>
-            Ingresar con Google
-        </button>
+      <!-- Mensaje inferior -->
+      <div class="bubble bubble-bottom">
+        <i class="fa-solid fa-location-dot"></i> Estás ubicado en Tunja, Boyacá
+      </div>
+    </main>
 
-        <p id="loginError" class="error"></p>
-    </div>
-    <script type="module" src="js/login.js"></script>
+    <!-- Footer fijo -->
+    <footer class="footer-icons">
+      <button class="icon-btn"><i class="fa-solid fa-user"></i></button>
+      <button class="icon-btn"><i class="fa-solid fa-house"></i></button>
+      <button class="icon-btn"><i class="fa-solid fa-globe"></i></button>
+    </footer>
+  </div>
+
+  <script type="module" src="js/login.js"></script>
 </body>
 </html>
