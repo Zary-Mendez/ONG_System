@@ -1,20 +1,28 @@
-// Capturamos el formulario
+import { login } from "./services/api.js";
+import { saveUser, redirectToChat } from "./ui/loginUI.js";
+
+// Botón
 const loginForm = document.getElementById("loginForm");
 
-loginForm.addEventListener("submit", function(e) {
+// Eventos
+loginForm.addEventListener("submit", async function(e) {
     e.preventDefault();
 
     const username = document.getElementById("username").value.trim();
 
-    if (!username) {
-        alert("Por favor, ingrese su nombre");
-        return;
+    try {
+        // Failsafe porque esto no puede suceder
+        if (!username) {
+            return;
+        }
+
+        // Llamar backend
+        const data = await login(username);
+
+        // Guardar y redirigir
+        saveUser(data.user);
+        redirectToChat();
+    } catch (err) {
+        console.error("Error de login:", err);
     }
-
-    // Guardamos el usuario en localStorage para usarlo en la siguiente pantalla
-    localStorage.setItem("username", username);
-    
-
-    // Redirigir a la pantalla de selección de emergencia
-    window.location.href = "emergency.html";
 });

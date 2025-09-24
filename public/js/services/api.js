@@ -1,11 +1,11 @@
 const API_USERS_URL = "/api/users";
 const API_LOGIN_URL = "/api/login";
 
-export async function login(name, password) {
+export async function login(name) {
     const res = await fetch(API_LOGIN_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, password })
+        body: JSON.stringify({ name })
     });
     
     if (!res.ok) throw new Error("Credenciales inválidas");

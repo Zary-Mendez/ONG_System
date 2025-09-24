@@ -10,9 +10,9 @@ function handleAuthRoutes(req, res) {
             req.on("data", chunk => (body += chunk));
             req.on("end", () => {
                 try {
-                    const { name, password } = JSON.parse(body);
+                    const { name } = JSON.parse(body);
                     const users = getUsers();
-                    const user = users.find(u => u.name === name && u.password === password);
+                    const user = users.find(u => u.name === name);
                     if (!user) {
                         res.writeHead(401);
                         res.end(JSON.stringify({ error: "Credenciales inválidas" }));
