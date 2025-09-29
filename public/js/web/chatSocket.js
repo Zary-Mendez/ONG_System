@@ -19,7 +19,8 @@ export function connect(user) {
 
         switch (data.type) {
             case "chat":
-                addMessage(data.user, data.text, data.user === user.name);
+                addMessage(data.user.name, data.text, data.user.name === user.name, data.location);
+                console.log(data);
                 break;
             case "system":
                 addSystemMessage(data.text);

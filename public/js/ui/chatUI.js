@@ -7,11 +7,11 @@ function fixChatHeight() {
 window.addEventListener("resize", fixChatHeight);
 fixChatHeight();
 
-export function addMessage(user, text, isSelf = false) {
+export function addMessage(user, text, isSelf = false , location) {
     const msgEl = document.createElement("div");
     msgEl.classList.add("message");
     if (isSelf) msgEl.classList.add("self");
-    msgEl.innerHTML = `<strong>${user}: </strong>${text}`;
+    msgEl.innerHTML = `<strong>${user}: ${location} </strong>${text}`;
     messagesDiv.appendChild(msgEl);
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }

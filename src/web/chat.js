@@ -26,6 +26,7 @@ function setupChat(wss) {
                         id: u.id,
                         name: u.name,
                         rol: u.rol,
+                        location: u.location,
                         img: u.img,
                         connected: users.some(c => c.id === u.id)
                     }))
@@ -33,7 +34,9 @@ function setupChat(wss) {
             }
 
             if (data.type === "chat") {
-                broadcast(users, { type: "chat", user: data.user, text: data.text });
+               const allUsers = getUsers();
+               console.log(allUsers + " <- TODOS LOS USUARIOS");
+                broadcast(users, { type: "chat", user: data.user, text: data.text, location: allUsers.find(u => u.id === data.user.id).location });
             }
         });
 
@@ -52,6 +55,7 @@ function setupChat(wss) {
                         name: u.name,
                         rol: u.rol,
                         img: u.img,
+                        location: u.location,
                         connected: users.some(c => c.id === u.id)
                     }))
                 });

@@ -3,12 +3,14 @@
         "id": 1,
         "name": "Admin",
         "rol": "admin",
+        "location": "Tunja",
         "img": "https://i.pravatar.cc/150?img=1"
     },
     {
         "id": 2,
         "name": "Usuario",
         "rol": "user",
+        "location": "Bogotá",
         "img": "https://i.pravatar.cc/150?img=2"
     }
 ]
