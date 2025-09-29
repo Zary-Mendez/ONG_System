@@ -1,14 +1,14 @@
 [
     {
         "id": 1,
-        "name": "Admin",
-        "rol": "admin",
+        "name": "Zary",
+        "rol": "voluntario",
         "location": "Tunja",
         "img": "https://i.pravatar.cc/150?img=1"
     },
     {
         "id": 2,
-        "name": "Usuario",
+        "name": "Fabiana",
         "rol": "user",
         "location": "Bogotá",
         "img": "https://i.pravatar.cc/150?img=2"

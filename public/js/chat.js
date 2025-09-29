@@ -16,13 +16,13 @@ if (!user && !emergency) {
 
 console.log("Chat JS cargado"); 
 // Mostrar nombre del usuario en el encabezado
-document.getElementById("chat-username").textContent = "Bienvenido " + user.name;
+document.getElementById("chat-username").textContent = emergency;
 
 // Mostrar la emergencia reportada en el chat como mensaje del sistema
 const messagesDiv = document.getElementById("messages");
 const emergencyMsg = document.createElement("div");
 emergencyMsg.classList.add("message", "system");
-emergencyMsg.innerHTML = `<em>🚨 Emergencia reportada: ${emergency}</em>`;
+emergencyMsg.innerHTML = `<em>🚨 Emergencia reportada </em>`;
 messagesDiv.appendChild(emergencyMsg);
 
 // Sidebar y controles
@@ -42,7 +42,7 @@ chatForm.addEventListener("submit", function (e) {
     e.preventDefault();
     const text = messageInput.value.trim();
     if (text) {
-        sendMessage(user, text);
+        sendMessage(user, text, user.emergency);
         messageInput.value = "";
     }
 });

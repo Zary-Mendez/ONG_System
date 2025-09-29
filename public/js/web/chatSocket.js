@@ -34,12 +34,13 @@ export function connect(user) {
     });
 }
 
-export function sendMessage(user, text) {
+export function sendMessage(user, text, emergency) {
     if (!socket || socket.readyState !== WebSocket.OPEN) return;
 
     socket.send(JSON.stringify({
         type: "chat",
         user: user,
+        emergency: emergency,
         text
     }));
 }

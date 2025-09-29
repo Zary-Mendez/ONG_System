@@ -12,12 +12,12 @@ function setupChat(wss) {
             const data = JSON.parse(msg);
 
             if (data.type === "login") {
-                currentUser = { id: data.user.id, name: data.user.name, ws };
+                currentUser = { id: data.user.id, name: data.user.name, ws, location: data.user.location, emergency: data.user.emergency};
                 users.push(currentUser);
 
                 console.log(`${new Date().toISOString()} - 🟢 Cliente conectado (${currentUser.name} | ${ip})`);
 
-                broadcast(users, { type: "system", text: `${currentUser.name} se unió` });
+                broadcast(users, { type: "system", text: `${currentUser.name}` });
 
                 const allUsers = getUsers();
                 broadcast(users, {
@@ -36,7 +36,7 @@ function setupChat(wss) {
             if (data.type === "chat") {
                const allUsers = getUsers();
                console.log(allUsers + " <- TODOS LOS USUARIOS");
-                broadcast(users, { type: "chat", user: data.user, text: data.text, location: allUsers.find(u => u.id === data.user.id).location });
+                broadcast(users, { type: "chat", user: data.user, text: data.text, location: allUsers.find(u => u.id === data.user.id).location, emergency: data.emergency});
             }
         });
 
