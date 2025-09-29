@@ -18,6 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   cancelBtn.addEventListener("click", () => {
     localStorage.removeItem("emergency");
-    window.location.href = "chat.html";
+    window.location.href = "emergency.html";
   });
 });

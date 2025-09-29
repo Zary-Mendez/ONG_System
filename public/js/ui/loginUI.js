@@ -4,5 +4,5 @@ export function saveUser(user) {
 }
 
 export function redirectToChat() {
-    window.location.href = "/chat.html";
+    window.location.href = "/emergency.html";
 }
