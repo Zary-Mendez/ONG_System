@@ -75,7 +75,7 @@ body {
 }
 
 /* Responsivo Global */
-@media (max-width: 600px) {
+@media (max-width: 640px) {
     .chat-header h2 {
         font-size: var(--font-size-md);
     }

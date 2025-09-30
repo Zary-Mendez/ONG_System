@@ -1,48 +1,42 @@
 import { login } from "./services/api.js";
-import { saveUser, redirectToChat } from "./ui/loginUI.js";
+import { saveUser, redirectToEmergency, redirectToVoluntarioEmergency } from "./ui/loginUI.js";
 
-// Botón
-let emergencyType;
-const loginForm = document.getElementById("loginForm");
-document.querySelectorAll("btn-emergency").forEach(card => {
-    card.addEventListener("click", () => {
-        const type = card.classList.contains("incendio") ? "Incendio" :
-            card.classList.contains("inundacion") ? "Inundacion" :
-                card.classList.contains("terremoto") ? "Terremoto": "";
-        selectEmergency(type);
-    });
-});
-function selectEmergency(type) {
-    const emergencyNames = {
-        "Incendio": "Incendio",
-        "Inundacion": "Inundación",
-        "Terremoto": "Terremoto"
-    };
-    // return emergencyNames[type]
-    emergencyType = {emergency:emergencyNames[type]};
-}
+// Variable para almacenar el rol seleccionado
+let selectedRole = null;
 
-// Eventos>
-loginForm.addEventListener("submit", async function(e) {
-    e.preventDefault();
+const usernameInput = document.getElementById("username");
 
-    const username = document.getElementById("username").value.trim();
+// Agregar event listeners a los botones de rol
+document.querySelectorAll('[data-role]').forEach(button => {
+    button.addEventListener("click", async (e) => {
+        e.preventDefault();
+        
+        const username = usernameInput.value.trim();
+        selectedRole = button.dataset.role;
 
-    // console.log(selectEmergency() + " <- TIPO DE EMERGENCIA");
-
-    try {
-        // Failsafe porque esto no puede suceder
+        // Validar que se haya ingresado un nombre
         if (!username) {
+            alert("Por favor ingresa tu nombre");
+            usernameInput.focus();
             return;
         }
 
-        // Llamar backend
-        const data = await login(username);
+        try {
+            // Llamar backend
+            const data = await login(username);
 
-        // Guardar y redirigir
-        saveUser(data.user, emergencyType);
-        redirectToChat();
-    } catch (err) {
-        console.error("Error de login:", err);
-    }
+            // Guardar usuario con su rol
+            saveUser(data.user, selectedRole);
+
+            // Redirigir según el rol
+            if (selectedRole === "usuario") {
+                redirectToEmergency();
+            } else if (selectedRole === "voluntario") {
+                redirectToVoluntarioEmergency();
+            }
+        } catch (err) {
+            console.error("Error de login:", err);
+            alert("Hubo un error al iniciar sesión. Intenta nuevamente.");
+        }
+    });
 });

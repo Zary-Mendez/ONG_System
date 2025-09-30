@@ -11,7 +11,7 @@ export function addMessage(user, text, isSelf = false , location) {
     const msgEl = document.createElement("div");
     msgEl.classList.add("message");
     if (isSelf) msgEl.classList.add("self");
-    msgEl.innerHTML = `<strong>${user}: ${location} </strong>${text}`;
+    msgEl.innerHTML = `<strong>${user}: ${location} </strong> <br> ${text}`;
     messagesDiv.appendChild(msgEl);
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }

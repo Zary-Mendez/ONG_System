@@ -16,7 +16,10 @@ if (!user && !emergency) {
 
 console.log("Chat JS cargado"); 
 // Mostrar nombre del usuario en el encabezado
-document.getElementById("chat-username").textContent = emergency + " - " + user.location;
+document.getElementById("chat-username").textContent = emergency;
+// document.getElementById("chat-username").textContent = location + " - " + user.location;
+console.log("Usuario:", user.name, "Emergencia:", emergency, "Ubicación:", "<- USUARIO, EMERGENCIA Y UBICACIÓN");
+
 
 // Mostrar la emergencia reportada en el chat como mensaje del sistema
 const messagesDiv = document.getElementById("messages");
