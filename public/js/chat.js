@@ -16,13 +16,13 @@ if (!user && !emergency) {
 
 console.log("Chat JS cargado"); 
 // Mostrar nombre del usuario en el encabezado
-document.getElementById("chat-username").textContent = emergency;
+document.getElementById("chat-username").textContent = emergency + " - " + user.location;
 
 // Mostrar la emergencia reportada en el chat como mensaje del sistema
 const messagesDiv = document.getElementById("messages");
 const emergencyMsg = document.createElement("div");
 emergencyMsg.classList.add("message", "system");
-emergencyMsg.innerHTML = `<em>🚨 Emergencia reportada </em>`;
+emergencyMsg.innerHTML = `<em>Emergencia</em>`;
 messagesDiv.appendChild(emergencyMsg);
 
 // Sidebar y controles
@@ -34,7 +34,7 @@ const messageInput = document.getElementById("messageInput");
 // const closeBtn = document.getElementById("closeSidebar");
 
 // Conectar al WebSocket
-connect(user);
+connect(user, emergency);
 
 // Enviar mensaje al servidor
 

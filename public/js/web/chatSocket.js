@@ -2,7 +2,7 @@ import { addMessage, addSystemMessage, updateUserList } from "../ui/chatUI.js";
 
 let socket;
 
-export function connect(user) {
+export function connect(user, emergency) {
     let wsUrl = location.hostname === "localhost" ? "ws://localhost:3000" : `wss://${location.host}`;
 
     socket = new WebSocket(wsUrl);
@@ -10,7 +10,9 @@ export function connect(user) {
     socket.addEventListener("open", () => {
         socket.send(JSON.stringify({
             type: "login",
-            user
+            user,
+            // location: user.location,
+            emergency: emergency
         }));
     });
 

@@ -44,10 +44,8 @@ function handleUsersRoutes(req, res) {
                     const newUser = {
                         id: users.length ? users[users.length - 1].id + 1 : 1,
                         name,
-                        password,
-                        email,
+                        location,
                         rol: rol || "user",
-                        img: img || "https://i.pravatar.cc/150"
                     };
                     users.push(newUser);
                     saveUsers(users);

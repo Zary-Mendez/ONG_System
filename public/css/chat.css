@@ -136,7 +136,7 @@ body {
 .message.self {
     align-self: flex-end;
     background: var(--color-tertiary);
-    color: var(--color-white);
+    color: var(--color-black);
     border-bottom-right-radius: 0;
 }
 
@@ -184,4 +184,22 @@ body {
 
 .send-btn:hover {
     background: var(--color-hover);
+}
+
+/* Footer fijo */
+.footer-icons {
+  flex-shrink: 0;
+  background: #b3ddf2;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+  border-top: 1px solid #ccc;
+}
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--color-primary);
+  cursor: pointer;
 }

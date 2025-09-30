@@ -19,7 +19,7 @@ export function addMessage(user, text, isSelf = false , location) {
 export function addSystemMessage(text) {
     const msgEl = document.createElement("div");
     msgEl.classList.add("message", "system");
-    msgEl.innerHTML = `<em>⚙️ ${text}</em>`;
+    msgEl.innerHTML = `<em>${text}</em>`;
     messagesDiv.appendChild(msgEl);
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }

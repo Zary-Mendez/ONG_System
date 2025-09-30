@@ -12,7 +12,9 @@ function setupChat(wss) {
             const data = JSON.parse(msg);
 
             if (data.type === "login") {
-                currentUser = { id: data.user.id, name: data.user.name, ws, location: data.user.location, emergency: data.user.emergency};
+                // currentUser = { id: data.user.id, name: data.user.name, ws, location: data.user.location, emergency: data.user.emergency};
+                currentUser = { id: data.user.id, name: data.user.name, ws};
+                console.log(JSON.stringify(data) + " <- DATA DEL USUARIO QUE SE CONECTA");
                 users.push(currentUser);
 
                 console.log(`${new Date().toISOString()} - 🟢 Cliente conectado (${currentUser.name} | ${ip})`);
@@ -27,16 +29,17 @@ function setupChat(wss) {
                         name: u.name,
                         rol: u.rol,
                         location: u.location,
-                        img: u.img,
                         connected: users.some(c => c.id === u.id)
                     }))
                 });
             }
 
             if (data.type === "chat") {
+            //    const allUsers = JSON.parse(getUsers());
                const allUsers = getUsers();
-               console.log(allUsers + " <- TODOS LOS USUARIOS");
-                broadcast(users, { type: "chat", user: data.user, text: data.text, location: allUsers.find(u => u.id === data.user.id).location, emergency: data.emergency});
+            //    console.log(JSON.stringify(allUsers) + " <- TODOS LOS USUARIOS");
+            console.log(JSON.stringify(users, null, 2) + " <- USUARIOS CONECTADOS");
+                broadcast(users, { type: "chat", user: data.user, text: data.text, location: allUsers.find(u => u.id === data.user.id).location, emergency: data.user.emergency});
             }
         });
 
@@ -54,7 +57,6 @@ function setupChat(wss) {
                         id: u.id,
                         name: u.name,
                         rol: u.rol,
-                        img: u.img,
                         location: u.location,
                         connected: users.some(c => c.id === u.id)
                     }))

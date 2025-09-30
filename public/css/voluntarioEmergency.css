@@ -1,0 +1,179 @@
+/* Estructura general tipo chat */
+.chat-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #fff;
+}
+
+/* Header fijo */
+.header {
+  flex-shrink: 0;
+  background: #b3ddf2;
+  padding: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  border-bottom: 1px solid #ccc;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.logo-container {
+  background: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.logo {
+  width: 70%;
+  height: auto;
+}
+
+.header h1 {
+  font-size: var(--font-size-md);
+  margin: 0;
+  color: var(--color-primary); 
+  font-weight: 600;
+}
+
+/* Contenido scroll */
+.chat-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-md);
+
+  /* 🔹 Centrado vertical */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  gap: var(--spacing-md);
+}
+
+/* Burbuja estilo chat */
+.bubble {
+  background: #b3ddf2;
+  color: var(--color-black);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-md);
+  text-align: center;
+  width: 85%;
+}
+
+/* Caja emergency */
+.emergency-container {
+  width: 90%;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  background: white;
+}
+
+#emergency-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  gap: 0;
+}
+
+.form-section h2 {
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  margin: 0;
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  text-align: center;
+}
+
+label {
+  font-size: var(--font-size-md);
+  color: var(--color-black);
+}
+
+input {
+  padding: var(--spacing-sm);
+  border: 1px solid #87c4f8; /* azul claro */
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-md);
+  outline: none;
+  background: var(--color-primary-light);
+}
+
+/* Botones de emergencia estilo blanco con borde */
+.btn-emergency {
+  padding: 12px 16px;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  background: var(--color-tertiary);
+  color: #333;
+  font-size: var(--font-size-md);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.btn-emergency:hover {
+  background: #0d83f9;
+  border-color: #022ebf;
+}
+
+.btn-emergency:active {
+  background: var(--color-primary-dark);
+}
+
+.btn-primary {
+  padding: 6px 14px; /* más compacto */
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: var(--font-size-md);
+  cursor: pointer;
+  align-self: center;
+}
+
+.btn-primary:hover {
+  background: var(--color-hover);
+}
+
+/* Footer fijo */
+.footer-icons {
+  flex-shrink: 0;
+  background: #b3ddf2;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+  border-top: 1px solid #ccc;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+.icon-btn:hover {
+  opacity: 0.7;
+}

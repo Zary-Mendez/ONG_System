@@ -4,6 +4,7 @@ const path = require("path");
 const USERS_FILE = path.join(__dirname, "..", "data", "users.json");
 
 function getUsers() {
+    // console.log(fs.readFileSync(USERS_FILE, "utf8"));
     return JSON.parse(fs.readFileSync(USERS_FILE, "utf8"));
 }
 

@@ -1,7 +1,8 @@
 function broadcast(users, data) {
     const msg = JSON.stringify(data);
+    console.log(data);
     users.forEach(u => {
-        if (u.ws.readyState === 1 && data.emergency === u.emergency && data.emergency !== "General") {
+        if (u.ws.readyState === 1) {
             u.ws.send(msg);
         }
     });

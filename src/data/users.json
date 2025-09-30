@@ -3,14 +3,12 @@
         "id": 1,
         "name": "Zary",
         "rol": "voluntario",
-        "location": "Tunja",
-        "img": "https://i.pravatar.cc/150?img=1"
+        "location": "Tunja"
     },
     {
         "id": 2,
         "name": "Fabiana",
         "rol": "user",
-        "location": "Bogotá",
-        "img": "https://i.pravatar.cc/150?img=2"
+        "location": "Bogotá"
     }
 ]
