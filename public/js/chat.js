@@ -42,7 +42,7 @@ chatForm.addEventListener("submit", function (e) {
     e.preventDefault();
     const text = messageInput.value.trim();
     if (text) {
-        sendMessage(user, text, user.emergency);
+        sendMessage(user, text, emergency);
         messageInput.value = "";
     }
 });

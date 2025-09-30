@@ -13,15 +13,17 @@ function setupChat(wss) {
 
             if (data.type === "login") {
                 // currentUser = { id: data.user.id, name: data.user.name, ws, location: data.user.location, emergency: data.user.emergency};
-                currentUser = { id: data.user.id, name: data.user.name, ws};
-                console.log(JSON.stringify(data) + " <- DATA DEL USUARIO QUE SE CONECTA");
+                const allUsers = getUsers();
+                currentUser = { id: data.user.id, name: data.user.name, emergency: data.emergency, location: allUsers.find(u => u.id === data.user.id).location, ws};
+                
                 users.push(currentUser);
+                // console.log(JSON.stringify(users[0].emergency, null, 2) + " <- DATA DEL USUARIO QUE SE CONECTA");
 
                 console.log(`${new Date().toISOString()} - 🟢 Cliente conectado (${currentUser.name} | ${ip})`);
 
-                broadcast(users, { type: "system", text: `${currentUser.name}` });
+                broadcast(users, { type: "system", text: `${currentUser.name}`, emergency: data.emergency, location: allUsers.find(u => u.id === data.user.id).location, ws});
 
-                const allUsers = getUsers();
+                
                 broadcast(users, {
                     type: "users",
                     users: allUsers.map(u => ({
@@ -36,10 +38,11 @@ function setupChat(wss) {
 
             if (data.type === "chat") {
             //    const allUsers = JSON.parse(getUsers());
-               const allUsers = getUsers();
+            const allUsers = getUsers();
             //    console.log(JSON.stringify(allUsers) + " <- TODOS LOS USUARIOS");
-            console.log(JSON.stringify(users, null, 2) + " <- USUARIOS CONECTADOS");
-                broadcast(users, { type: "chat", user: data.user, text: data.text, location: allUsers.find(u => u.id === data.user.id).location, emergency: data.user.emergency});
+            
+                broadcast(users, { type: "chat", user: data.user, text: data.text, location: allUsers.find(u => u.id === data.user.id).location, emergency: data.emergency });
+                // console.log(" <- USUARIOS CONECTADOS" + JSON.stringify(data, null, 2));
             }
         });
 
