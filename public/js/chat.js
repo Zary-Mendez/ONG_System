@@ -25,7 +25,7 @@ console.log("Usuario:", user.name, "Emergencia:", emergency, "Ubicación:", "<- 
 const messagesDiv = document.getElementById("messages");
 const emergencyMsg = document.createElement("div");
 emergencyMsg.classList.add("message", "system");
-emergencyMsg.innerHTML = `<em>Emergencia</em>`;
+emergencyMsg.innerHTML = `<em> <strong> Emergencia </strong> </em>`;
 messagesDiv.appendChild(emergencyMsg);
 
 // Sidebar y controles

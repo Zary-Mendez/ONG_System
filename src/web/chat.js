@@ -21,7 +21,7 @@ function setupChat(wss) {
 
                 console.log(`${new Date().toISOString()} - 🟢 Cliente conectado (${currentUser.name} | ${ip})`);
 
-                broadcast(users, { type: "system", text: `${currentUser.name}`, emergency: data.emergency, location: allUsers.find(u => u.id === data.user.id).location, ws});
+                broadcast(users, { type: "system", text: `Se ha unido: ${currentUser.name}`, emergency: data.emergency, location: allUsers.find(u => u.id === data.user.id).location});
 
                 
                 broadcast(users, {

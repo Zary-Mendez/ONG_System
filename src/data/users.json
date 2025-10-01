@@ -10,5 +10,18 @@
         "name": "Fabiana",
         "rol": "user",
         "location": "Tunja"
+    },
+      {
+        "id": 1,
+        "name": "Jose",
+        "rol": "user",
+        "location": "Tunja"
+    },
+    {
+        "id": 2,
+        "name": "Alejandro",
+        "rol": "user",
+        "location": "Tunja"
     }
+
 ]

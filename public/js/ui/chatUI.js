@@ -16,10 +16,10 @@ export function addMessage(user, text, isSelf = false , location) {
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
 
-export function addSystemMessage(text) {
+export function addSystemMessage(name, emergency) {
     const msgEl = document.createElement("div");
     msgEl.classList.add("message", "system");
-    msgEl.innerHTML = `<em>${text}</em>`;
+    msgEl.innerHTML = `<em><strong> ${name}</strong></em>`;
     messagesDiv.appendChild(msgEl);
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }

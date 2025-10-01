@@ -1,46 +1,56 @@
+/* Estructura general tipo chat */
+.chat-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background: #fff;
+}
+
+/* Header fijo */
+.header {
+  flex-shrink: 0;
+  background: #b3ddf2;
+  padding: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  border-bottom: 1px solid #ccc;
+}
+
+.logo-container {
+  background: #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.logo {
+  width: 70%;
+  height: auto;
+}
+
+.header h1 {
+  font-size: 20px;
+  margin: 0;
+  color: var(--color-primary); 
+  font-weight: 600;
+}
+
 /* Contenido scroll */
 .chat-body {
   flex: 1;
   overflow-y: auto;
   padding: var(--spacing-md);
-
-  /* 🔹 Centrado vertical */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center; 
   gap: var(--spacing-md);
-}
-
-#cancelBtn {
-  padding: 6px 14px; /* más compacto */
-  border: none;
-  border-radius: var(--radius-md);
-  background: red;
-  color: var(--color-white);
-  font-size: var(--font-size-md);
-  cursor: pointer;
-  align-self: left;
-}
-
-
-#cancelBtn:hover {
-  background: rgb(213, 2, 2);
-}
-
-#confirmBtn {
-  padding: 6px 14px; /* más compacto */
-  border: none;
-  border-radius: var(--radius-md);
-  background: rgb(2, 173, 2);
-  color: var(--color-white);
-  font-size: var(--font-size-md);
-  cursor: pointer;
-  align-self: right;
-}
-
-#confirmBtn:hover {
-  background: rgb(3, 95, 3);
 }
 
 /* Burbuja estilo chat */
@@ -51,17 +61,221 @@
   border-radius: var(--radius-md);
   font-size: var(--font-size-md);
   text-align: center;
-  width: 85%;
+  max-width: 300px;
+  width: fit-content;
 }
 
-/* Caja confirm */
-.confirm-container {
+/* Info de ubicación */
+.location-info {
+  background: #b3ddf2;
+  color: var(--color-black);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 300px;
+  width: fit-content;
+}
+
+.location-icon {
+  color: var(--color-primary);
+  font-size: 20px;
+}
+
+/* Caja emergency */
+.emergency-container {
+  width: 90%;
+  max-width: 450px;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  background: white;
+  overflow: hidden;
+}
+
+.emergency-header {
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  padding: var(--spacing-md);
+  text-align: center;
+}
+
+#emergency-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  gap: 0;
+}
+
+.form-section h2 {
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  margin: 0;
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  text-align: center;
+}
+
+label {
+  font-size: var(--font-size-md);
+  color: var(--color-black);
+}
+
+input {
+  padding: var(--spacing-sm);
+  border: 1px solid #87c4f8;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-md);
+  outline: none;
+  background: var(--color-primary-light);
+}
+
+/* Botones de emergencia estilo blanco con borde */
+.btn-emergency {
+  padding: 14px 16px;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-md);
   background: var(--color-tertiary);
-  width: 70%;
-  height: 20%;
+  color: #333;
+  font-size: var(--font-size-md);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-emergency:hover {
+  background: #e6f0ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 102, 255, 0.2);
+}
+
+.btn-emergency:active {
+  background: var(--color-primary-dark);
+  transform: translateY(0);
+}
+
+.btn-icon {
+  font-size: 24px;
+}
+
+.btn-primary {
+  padding: 6px 14px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: var(--font-size-md);
+  cursor: pointer;
+  align-self: center;
+}
+
+.btn-primary:hover {
+  background: var(--color-hover);
+}
+
+/* Footer fijo */
+.footer-icons {
+  flex-shrink: 0;
+  background: #b3ddf2;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid #ccc;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: opacity 0.2s;
+  padding: 8px;
+}
+
+.icon-btn:hover {
+  opacity: 0.7;
+}
+/* Botones de confirmación */
+#cancelBtn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: red;
+  color: var(--color-white);
+  font-size: var(--font-size-md);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+#cancelBtn:hover {
+  background: rgb(213, 2, 2);
+}
+
+#confirmBtn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: rgb(2, 173, 2);
+  color: var(--color-white);
+  font-size: var(--font-size-md);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+#confirmBtn:hover {
+  background: rgb(3, 95, 3);
+}
+
+/* Caja de confirmación - MODAL CENTRADO */
+.confirm-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--color-tertiary);
+  width: 80%;
+  max-width: 500px;
   border: 2px solid var(--color-primary);
   border-radius: var(--radius-md);
   text-align: center;
+  padding: var(--spacing-md);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.confirm-container h2 {
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  margin: 0 0 var(--spacing-md) 0;
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.confirm-container p {
+  font-size: var(--font-size-md);
+  margin: var(--spacing-md) 0;
+  color: var(--color-black);
 }
 
 #confirm-options {
@@ -69,7 +283,6 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
 }
-
-
-

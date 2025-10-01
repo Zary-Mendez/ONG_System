@@ -25,7 +25,7 @@ export function connect(user, emergency) {
                 console.log(data);
                 break;
             case "system":
-                addSystemMessage(data.text);
+                addSystemMessage(data.text, data.emergency);
                 break;
             case "users":
                 updateUserList(data.users);

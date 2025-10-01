@@ -9,7 +9,36 @@
   <script defer src="./js/confirm.js"></script>
 </head>
 <body>
-    <div class="confirm-container"> 
+  <div class="chat-wrapper">
+    
+    <!-- Header fijo -->
+    <header class="header">
+      <div class="logo-container">
+        <img src="./logos/logo_rescate.png" alt="Logo Rescate Global Colombia" class="logo"/>
+      </div>
+      <h1>Rescate Global Colombia</h1>
+    </header>
+
+    <!-- Contenido scroll -->
+    <main class="chat-body">
+      <!-- Mensaje superior -->
+      <div class="bubble bubble-top">
+        Estamos aquí para ayudarte.
+      </div>
+
+      <!-- Login -->
+      <div class="emergency-container"> 
+        <form id="loginForm" class="form-section">
+          <h2>¿Cuál es tu emergencia?</h2>
+          <div id="emergency-options">
+            <button data-emergency="Incendio" class="btn-emergency incendio" type="button" id="btn-incendio">🔥 Incendio</button>
+            <button data-emergency="Inundación" class="btn-emergency inundacion" type="button" id="btn-inundacion">🌊 Inundación</button>
+            <button data-emergency="Terremoto" class="btn-emergency terremoto" type="button" id="btn-terremoto">🌳 Terremoto</button>
+          </div>
+        </form>
+      </div>
+
+       <div class="confirm-container"> 
         <form id="loginForm" class="form-section">
           <h2>Tu emergencia es:</h2>
             <p id="emergency-selected">...</p>
@@ -18,6 +47,21 @@
     <button id="confirmBtn" type="button">Confirmar</button>
       </form>
       </div>
+    </main>
+
+    <!-- Footer fijo -->
+    <footer class="footer-icons">
+      
+      <button class="icon-btn"><i class="fa-solid fa-house"></i></button>
+    </footer>
+  </div>
+
+  <!-- Script -->
+  <script type="module" src="js/emergency.js"></script>
+
+   
   
 </body>
 </html>
+
+  
