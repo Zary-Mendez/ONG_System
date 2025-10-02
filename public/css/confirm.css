@@ -247,11 +247,12 @@ input {
 /* Caja de confirmación - MODAL CENTRADO */
 .confirm-container {
   position: fixed;
-  top: 50%;
+  top: 58%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: var(--color-tertiary);
   width: 80%;
+  height: 20%;
   max-width: 500px;
   border: 2px solid var(--color-primary);
   border-radius: var(--radius-md);
@@ -273,6 +274,7 @@ input {
 }
 
 .confirm-container p {
+  top: 58%;
   font-size: var(--font-size-md);
   margin: var(--spacing-md) 0;
   color: var(--color-black);
