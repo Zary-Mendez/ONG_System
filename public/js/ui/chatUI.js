@@ -7,19 +7,21 @@ function fixChatHeight() {
 window.addEventListener("resize", fixChatHeight);
 fixChatHeight();
 
-export function addMessage(user, text, isSelf = false , location) {
+export function addMessage(user, text, isSelf = false, location) {
     const msgEl = document.createElement("div");
     msgEl.classList.add("message");
     if (isSelf) msgEl.classList.add("self");
-    msgEl.innerHTML = `<strong>${user}: ${location} </strong> <br> ${text}`;
+
+    msgEl.innerHTML = `<strong>${user}: ${location}</strong><br>${text}`;
+    
     messagesDiv.appendChild(msgEl);
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
 
-export function addSystemMessage(name, emergency) {
+export function addSystemMessage(name) {
     const msgEl = document.createElement("div");
     msgEl.classList.add("message", "system");
-    msgEl.innerHTML = `<em><strong> ${name}</strong></em>`;
+    msgEl.innerHTML = `<em><strong>${name}</strong></em>`;
     messagesDiv.appendChild(msgEl);
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
@@ -60,3 +62,4 @@ export function clearUser() {
 export function redirectToLogin() {
     window.location.href = "/login.html";
 }
+
